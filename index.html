@@ -8,15 +8,12 @@
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="The superfluous app that tells you if it's dark out.">
 
+    <!-- CSS -->
     <link rel="stylesheet" href="/darkout/css/main.css">
 
-    <style>
-      body {
-          width: 35em;
-          margin: 0 auto;
-          font-family: Tahoma, Verdana, Arial, sans-serif;
-      }
-    </style>
+    <!-- JS -->
+    <script type="text/javascript" src="/darkout/js/suncalc.js"></script>
+    <script type="text/javascript" src="/darkout/js/getdark.js"></script>
 
   </head>
 
@@ -29,15 +26,12 @@
     </p>
 
     <p>
-      For online documentation and support please refer to
-      <a href="http://nginx.org/">nginx.org</a>.<br/>
-
-      Commercial support is available at
-      <a href="http://nginx.com/">nginx.com</a>.</p>
+      <a id="start-button" href="javascript:void(0)">Is it dark out?</a>
+    </p>
 
     <p>
       <em>
-        Thank you for using nginx.
+        Copyright &copy; <script type="text/javascript" src="/darkout/js/current-year.js"></script> Serge Lobatch
       </em>
     </p>
 
