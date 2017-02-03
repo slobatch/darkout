@@ -1,3 +1,4 @@
 css/
 .sass-cache/
 Gemfile.lock
+.DS_Store
