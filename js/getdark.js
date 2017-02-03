@@ -1,4 +1,4 @@
-var date = new Date();
+var date = null;
 var a = null;
 var aText = null;
 var locationOptions = {
@@ -19,6 +19,10 @@ window.onload = function() {
 // Get Position
 function error(err){
   console.warn(`ERROR(${err.code}): ${err.message}`);
+
+  a.className = "btn btn-lg btn-danger";
+
+  transitionText("<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Please approve location permissions...");
 }
 
 function transitionText(newText){
@@ -33,6 +37,8 @@ function transitionText(newText){
 
 function getDark(){
 
+  date = new Date();
+
   if (navigator.geolocation) {
 
     a.className = "btn btn-lg btn-warning";
@@ -40,12 +46,15 @@ function getDark(){
     document.body.style.backgroundColor = "";
     document.body.style.color = "";
 
-    transitionText("Getting your location... <i class='fa fa-spinner fa-spin'></i>");
+    transitionText("Getting your location... <i class='fa fa-spinner fa-spin' aria-hidden='true'></i>");
 
     navigator.geolocation.getCurrentPosition(isDark, error, locationOptions);
   } else {
     console.log("Geolocation is not supported by this browser.")
-    a.innerHTML = "Your browser doesn't support Geolocation."
+
+    a.className = "btn btn-lg btn-danger";
+
+    transitionText("<i class='fa fa-exclamation-triangle' aria-hidden='true'></i> Browser doesn't support location... ");
     return false;
   }
 }
@@ -59,18 +68,16 @@ function isDark(position){
   var dusk = times.dusk;
   var dawn = times.dawn;
 
-  if (date >= dawn && date <= dusk){
-    console.log("It's Daytime!");
+  if (date > dawn && date < dusk){
     document.body.style.backgroundColor = "";
     document.body.style.color = "";
     a.className = "btn btn-lg btn-success";
-    transitionText("It's light out! Nightmode not enabled.");
+    transitionText("It's light out! <span class='emoji'>😎</span>");
   }
   else {
-    console.log("It's Nighttime!");
     document.body.style.backgroundColor = "#493a8c";
     document.body.style.color = "#fafafa";
     a.className = "btn btn-lg btn-success";
-    transitionText("It's dark out! Nightmode enabled.");
+    transitionText("It's dark out! <span class='emoji'>😴</span>");
   }
 }

@@ -5849,5 +5849,10 @@ h1 {
 
 .button-text {
   transition: opacity .5s ease; }
+  .button-text .emoji {
+    font-size: 30px;
+    line-height: 0;
+    vertical-align: sub;
+    display: inline; }
 
 /*# sourceMappingURL=main.css.map */
