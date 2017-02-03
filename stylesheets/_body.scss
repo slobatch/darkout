@@ -25,7 +25,6 @@ h1 {
 
 }
 
-
 .button-row {
   padding-top: 50px;
   padding-bottom: 80px;
@@ -50,4 +49,11 @@ h1 {
 
 .button-text {
   transition: opacity .5s ease;
+
+  .emoji {
+    font-size: 30px;
+    line-height: 0;
+    vertical-align: sub;
+    display: inline;
+  }
 }
