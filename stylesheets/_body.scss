@@ -1,0 +1,53 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  transition: all 1.5s ease;
+}
+
+.wrapper {
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 120px; // Ensures footer doesn't overlap content.
+}
+
+h1 {
+  font-size: 48px;
+}
+
+
+.fa-inline {
+  display: inline !important;
+
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
+
+.button-row {
+  padding-top: 50px;
+  padding-bottom: 80px;
+
+  a {
+    padding: 20px 50px;
+    font-size: 20px;
+    min-width: 100%;
+  }
+}
+
+
+.btn-transition-wrapper {
+  & > .btn {
+    transition: background-color 1.5s ease;
+
+    &:hover {
+      transition: background-color .25s ease;
+    }
+  }
+}
+
+.button-text {
+  transition: opacity .5s ease;
+}
