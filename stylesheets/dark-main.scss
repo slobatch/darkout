@@ -1,0 +1,10 @@
+// Alternate Stylesheet for dark mode.
+
+// Define variables before import.
+$body-bg: #493a8c;
+$text-color: #fafafa;
+
+// Import bootstrap and custom CSS files.
+@import 'vendor/bootstrap';
+@import 'footer';
+@import 'body';
