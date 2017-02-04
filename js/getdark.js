@@ -29,6 +29,8 @@ window.onload = function() {
 
   // Button click behavior
   a.onclick = function() {
+
+      changeStylesheet(defaultSheet);
       getDark();
     };
   };
