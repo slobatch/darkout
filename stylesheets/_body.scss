@@ -58,3 +58,11 @@ h1 {
     display: inline;
   }
 }
+
+
+.map {
+  display: none;
+  height: 0;
+  width: 100%;
+  transition: display 1.5s ease, height 1.5s ease,
+}
