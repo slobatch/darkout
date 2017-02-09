@@ -14,7 +14,7 @@
 # Default server configuration
 #
 server {
-	listen 3000;
+	listen 8080;
 	server_name localhost;
 
 	# SSL configuration
@@ -35,10 +35,15 @@ server {
 
 	# Add index.php to the list if you are using PHP
 
-	location /darkout {
-		alias /Users/slobatch/Code/slobatch/darkout;
+	root /Users/slobatch/Code/slobatch/darkout;
+
+	location / {
 		index index.html index.htm index.nginx-debian.html;
 		try_files $uri $uri/ =404;
+	}
+
+	location ~ ^/darkout/(.*)$ {
+		alias /Users/slobatch/Code/slobatch/darkout/$1;
 	}
 
 	# pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
