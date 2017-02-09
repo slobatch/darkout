@@ -14,6 +14,7 @@ var a = null;
 var aText = null;
 var map = null;
 var mapDiv = null;
+var marker = null;
 
 var locationOptions = {
   enableHighAccuracy: true,
@@ -149,28 +150,44 @@ function buildMap(position, version){
   mapDiv.style.height = "200px";
   mapDiv.style.width = "100%";
 
-  var userPosition = {lat: position.coords.latitude, lng: position.coords.longitude};
+  var userLatLng = {lat: position.coords.latitude, lng: position.coords.longitude};
 
   if (version == "night") {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: userPosition,
+      center: userLatLng,
       scrollwheel: false,
       zoom: 10,
       styles: mapNightStyle
     });
   } else {
     map = new google.maps.Map(document.getElementById('map'), {
-      center: userPosition,
+      center: userLatLng,
       scrollwheel: false,
       zoom: 10
     });
   }
 
-  var marker = new google.maps.Marker({
-    position: userPosition,
+  marker = new google.maps.Marker({
+    position: userLatLng,
     map: map,
     title: 'You are here!'
   });
 
+  map.addListener('center_changed', function(){ newLocation(); });
+
   mapDiv.style.display = "block";
+
+  // var latLng = map.getCenter();
+  // var newlat = latLng.lat();
+  // var newlng = latLng.lng();
+  // console.log(newlat + ", " + newlng);
+}
+
+function newLocation(){
+  // console.log("newLocation called");
+  var newCenter = map.getCenter();
+  // console.log(latLng.lat() + " " + latLng.lng());
+  document.getElementById("formLat").value = newCenter.lat();
+  document.getElementById("formLng").value = newCenter.lng();
+  marker.setPosition(newCenter);
 }
