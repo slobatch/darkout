@@ -66,3 +66,8 @@ h1 {
   width: 100%;
   transition: display 1.5s ease, height 1.5s ease,
 }
+
+.locationForm {
+  display: none;
+  transition: all 1.5 ease;
+}

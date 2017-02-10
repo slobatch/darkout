@@ -48,9 +48,8 @@ function getDark(){
   date = new Date();
 
   if (navigator.geolocation) {
-
+    
     updateButton("warning", loadButtonString);
-
     navigator.geolocation.getCurrentPosition(isDark, error, locationOptions);
 
   } else {
@@ -156,14 +155,14 @@ function buildMap(position, version){
     map = new google.maps.Map(document.getElementById('map'), {
       center: userLatLng,
       scrollwheel: false,
-      zoom: 10,
+      zoom: 3,
       styles: mapNightStyle
     });
   } else {
     map = new google.maps.Map(document.getElementById('map'), {
       center: userLatLng,
       scrollwheel: false,
-      zoom: 10
+      zoom: 3
     });
   }
 
@@ -177,14 +176,16 @@ function buildMap(position, version){
 
   mapDiv.style.display = "block";
 
-  // var latLng = map.getCenter();
-  // var newlat = latLng.lat();
-  // var newlng = latLng.lng();
-  // console.log(newlat + ", " + newlng);
+  newLocation();
+
 }
 
 function newLocation(){
-  // console.log("newLocation called");
+
+  if (document.getElementById("formLat").value && document.getElementById("formLng").value) {
+    document.getElementsByName("locationForm")[0].style.display = "block";
+  }
+
   var newCenter = map.getCenter();
   // console.log(latLng.lat() + " " + latLng.lng());
   document.getElementById("formLat").value = newCenter.lat();
